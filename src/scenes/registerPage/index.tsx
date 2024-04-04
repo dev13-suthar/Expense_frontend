@@ -13,7 +13,7 @@ const RegisterPage = () => {
       const navigate = useNavigate();
       // Register function for Fetch
       const register = async(value:RegisterPageTypes, formikHelpers: FormikHelpers<RegisterPageTypes>)=>{
-          const res = await fetch(`https://expense-api.onrender.com/auth/register`,{
+          const res = await fetch(`https://expense-api-41vr.onrender.com/auth/register`,{
             method:"POST",
             headers:{
               "Content-Type":"application/json"
