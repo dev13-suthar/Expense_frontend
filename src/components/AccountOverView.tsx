@@ -29,7 +29,7 @@ const AccountOverView = () => {
             }
         }
         const checkExpense = async()=>{
-            const res = await fetch(`https://expense-api-41vr.onrender.com/checkExpense/${user?._id}`,{
+            const res = await fetch(`https://expense-api-41vr.onrender.com/transactions/checkExpense/${user?._id}`,{
                 method:"GET"
             });
             const data = await res.json();
