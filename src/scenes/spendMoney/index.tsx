@@ -22,7 +22,7 @@ const SpendMoney = () => {
     const navigate = useNavigate();
 
     const spendMoney = async(value:FormProps,formikHelpers: FormikHelpers<FormProps>)=>{
-        const res = await fetch(`https://expense-api.onrender.com/transactions/spend/${user?._id}`,{
+        const res = await fetch(`https://expense-api-41vr.onrender.com/transactions/spend/${user?._id}`,{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"

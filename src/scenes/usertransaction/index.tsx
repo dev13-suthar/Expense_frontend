@@ -28,7 +28,7 @@ const UserTransaction = () => {
     useEffect(()=>{
       const getAllTranSaction = async()=>{
         setisLoading(true);
-        const res = await fetch(`https://expense-api.onrender.com/transactions/all/${user?._id}?sort=${sortBy}`,{
+        const res = await fetch(`https://expense-api-41vr.onrender.com/transactions/all/${user?._id}?sort=${sortBy}`,{
             method:"GET", 
         });
         const data = await res.json();

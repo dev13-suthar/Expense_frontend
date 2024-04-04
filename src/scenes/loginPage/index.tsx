@@ -13,7 +13,7 @@ const LoginPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const login = async(values:loginPageTypes,formikHelpers: FormikHelpers<loginPageTypes>)=>{
-    const res = await fetch(`https://expense-api.onrender.com/auth/login`,{
+    const res = await fetch(`https://expense-api-41vr.onrender.com/auth/login`,{
       method:"POST",
       headers:{
         "Content-Type":"application/json"
