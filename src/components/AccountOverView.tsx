@@ -19,7 +19,7 @@ const AccountOverView = () => {
     useEffect(()=>{
         const checkIncome = async()=>{
             try {
-                const res = await fetch(`https://expense-api-41vr.onrender.com/transactions/checkIncome/${user?._id}`,{
+                const res = await fetch(`http://localhost:7001/transactions/checkIncome/${user?._id}`,{
                     method:"GET"
                 });
                 const data = await res.json();
@@ -29,7 +29,7 @@ const AccountOverView = () => {
             }
         }
         const checkExpense = async()=>{
-            const res = await fetch(`https://expense-api-41vr.onrender.com/transactions/checkExpense/${user?._id}`,{
+            const res = await fetch(`http://localhost:7001/transactions/checkExpense/${user?._id}`,{
                 method:"GET"
             });
             const data = await res.json();

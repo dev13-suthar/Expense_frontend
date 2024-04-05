@@ -3,6 +3,7 @@ import { Formik,FormikHelpers } from "formik";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setuser } from "../../state";
+import { useState } from "react";
 
 type loginPageTypes = {
   email:string,
@@ -12,21 +13,31 @@ type loginPageTypes = {
 const LoginPage = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [error, seterror] = useState("");
   const login = async(values:loginPageTypes,formikHelpers: FormikHelpers<loginPageTypes>)=>{
-    const res = await fetch(`https://expense-api-41vr.onrender.com/auth/login`,{
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json"
-      },
-      body:JSON.stringify(values)
-    })
-    const login = await res.json();
-    if(login){
-      dispatch(setuser({user:login.user,token:login.token}))
-    }
-
-    formikHelpers.resetForm();
-    navigate('/home')
+      try {
+        const res = await fetch(`http://localhost:7001/auth/login`,{
+          method:"POST",
+          headers:{
+            "Content-Type":"application/json"
+          },
+          body:JSON.stringify(values)
+        })
+        if(!res.ok){
+            throw new Error("Invalid Email or Password")
+        }
+        const login = await res.json();
+        if(login){
+          dispatch(setuser({user:login.user,token:login.token}))
+        }
+        formikHelpers.resetForm();
+        navigate('/home')
+      } catch (error) {
+          if(error){
+            console.log(error)
+            seterror(error.toString());
+          }
+      }
   }
 
   const handleFormSubmit = async(values:loginPageTypes,formikHelpers: FormikHelpers<loginPageTypes>)=>{
@@ -72,7 +83,7 @@ const LoginPage = () => {
                     onBlur={handleBlur}
                     name="password"
                   />{errors.password && touched.password && errors.password}
-
+                {error && <p className="font-bold text-xl text-red-400">{error}</p>}
               <Button type="submit"  fullWidth sx={{
                 backgroundColor:"#aceef7",
                 ":hover":{
