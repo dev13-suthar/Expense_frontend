@@ -24,7 +24,7 @@ const RecentTransactions = () => {
 
             const recentTransactionsList = async()=>{
                 setisLoading(true)
-                const res = await fetch(`http://localhost:7001/transactions/recentexpenses/${user?._id}`,{
+                const res = await fetch(`https://expense-api-41vr.onrender.com/transactions/recentexpenses/${user?._id}`,{
                     method:"GET"
                 });
                 const data =  await res.json();

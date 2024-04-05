@@ -16,7 +16,7 @@ const LoginPage = () => {
   const [error, seterror] = useState("");
   const login = async(values:loginPageTypes,formikHelpers: FormikHelpers<loginPageTypes>)=>{
       try {
-        const res = await fetch(`http://localhost:7001/auth/login`,{
+        const res = await fetch(`https://expense-api-41vr.onrender.com/auth/login`,{
           method:"POST",
           headers:{
             "Content-Type":"application/json"

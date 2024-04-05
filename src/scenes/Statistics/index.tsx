@@ -19,7 +19,7 @@ const StatisTics = () => {
     const getStats = async()=>{
       setisLoading(true);
       try {
-        const res= await fetch(`http://localhost:7001/stats/pieStats/${user?._id}`,{
+        const res= await fetch(`https://expense-api-41vr.onrender.com/stats/pieStats/${user?._id}`,{
           method:"GET"
         });
         const dataa = await res.json();

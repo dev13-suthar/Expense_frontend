@@ -1,12 +1,11 @@
-import Spinner from "./Spinner";
-import styles from "./SpinnerFullPage.module.css";
-
-function SpinnerFullPage() {
-  return (
-    <div className={styles.spinnerFullpage}>
-      <Spinner />
-    </div>
-  );
-}
-
-export default SpinnerFullPage;
+import styles from "./Spinner.module.css"
+function Spinner() {
+    return (
+      <div className={styles.spinnerContainer}>
+        <div className={styles.spinner}></div>
+      </div>
+    );
+  }
+  
+  export default Spinner;
+  
